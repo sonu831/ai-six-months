@@ -235,6 +235,32 @@ Level 4: OPERATOR
 
 ---
 
+## AI Master Curriculum
+
+Full 3-phase programme documented in [`docs/CURRICULUM.md`](docs/CURRICULUM.md).
+
+| Phase | Focus | Weeks |
+|-------|-------|-------|
+| **1 — Agentic Tooling (AT)** | LLM APIs, tool use, function calling, prompt engineering | 1–4 |
+| **2 — RAG** | Embeddings, vector stores, hybrid retrieval, reranking, RAGAS evaluation | 5–9 |
+| **3 — Agents & LLMOps** | Multi-agent orchestration, circuit breakers, tracing, CRAG, GraphRAG | 10–16 |
+
+**Learning loop:** Learn → Build → Run → Verify → Record (repeat every week).
+
+**Teaching agents** (invoke by loading the relevant file into context):
+
+| Agent | File | When |
+|-------|------|------|
+| Phase 1 Tutor | [`.ai/agents/phase1_at_tutor.md`](.ai/agents/phase1_at_tutor.md) | Weeks 1–4 |
+| Phase 2 Tutor | [`.ai/agents/phase2_rag_tutor.md`](.ai/agents/phase2_rag_tutor.md) | Weeks 5–9 |
+| Phase 3 Tutor | [`.ai/agents/phase3_ops_tutor.md`](.ai/agents/phase3_ops_tutor.md) | Weeks 10–16 |
+| Eval Agent | [`.ai/agents/eval_agent.md`](.ai/agents/eval_agent.md) | End of any week — quiz + checkpoint |
+
+**Session start:** tell Claude "I'm on Week N, use the [phase] tutor."
+**Checkpoint:** tell Claude "Quiz me on Week N" — eval agent runs 5 questions + code audit.
+
+---
+
 ## Canonical Structure
 
 ```text
