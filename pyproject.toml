@@ -1,0 +1,97 @@
+[tool.poetry]
+name = "enterprise-ai-sandbox"
+version = "0.1.0"
+description = "Production-grade monorepo for mastering Advanced RAG, Multi-Agent Systems, and LLMOps"
+authors = ["Principal Architect <support@saraljyotish.co.in>"]
+readme = "README.md"
+python = "^3.12"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+# --- Web framework ---
+fastapi = "^0.115"
+uvicorn = {extras = ["standard"], version = "^0.32"}
+
+# --- Data validation & config ---
+pydantic = "^2.10"
+pydantic-settings = "^2.6"
+
+# --- Async HTTP ---
+httpx = {extras = ["http2"], version = "^0.28"}
+aiohttp = "^3.11"
+
+# --- Structured logging ---
+structlog = "^24.4"
+rich = "^13.9"          # ConsoleRenderer dependency
+
+# --- Databases ---
+asyncpg = "^0.30"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0"}
+
+# --- Vector stores ---
+chromadb = "^0.5"
+
+# --- LLM SDKs ---
+openai = "^1.58"
+anthropic = "^0.40"
+
+# --- RAG / Embedding utilities ---
+cohere = {version = "^5.11", optional = true}
+sentence-transformers = {version = "^3.3", optional = true}
+numpy = "^2.1"
+
+# --- Agent orchestration ---
+langgraph = "^0.2"
+langchain-core = "^0.3"
+
+# --- Utilities ---
+tenacity = "^9.0"         # Retry with exponential back-off
+tiktoken = "^0.8"         # Token counting for context budget
+
+[tool.poetry.extras]
+cohere-rerank = ["cohere"]
+local-rerank = ["sentence-transformers"]
+all = ["cohere", "sentence-transformers"]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3"
+pytest-asyncio = "^0.24"
+pytest-cov = "^6.0"
+pytest-benchmark = "^4.0"
+mypy = "^1.13"
+ruff = "^0.8"
+black = "^24.10"
+pre-commit = "^4.0"
+faker = "^33.0"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "--cov=backend --cov-report=term-missing --cov-fail-under=80"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true
+exclude = ["tests/"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "N", "UP", "ANN", "ASYNC", "S", "B", "C4", "PT"]
+ignore = ["ANN101", "ANN102", "S101"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["ANN", "S"]
+"examples/**/*.py" = ["ANN"]
+
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

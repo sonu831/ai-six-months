@@ -1,0 +1,49 @@
+{
+  "project": "ai-six-months",
+  "engineer_seniority": "14+ Years / Lead Architect",
+  "tech_stack": [
+    "Python 3.12",
+    "FastAPI",
+    "PostgreSQL/pgvector",
+    "ChromaDB",
+    "Pydantic v2",
+    "LangGraph",
+    "aiohttp/httpx",
+    "structlog"
+  ],
+  "coding_standard": "Production-grade Python with strict typing, async-first boundaries, explicit exception taxonomy, and structured logging.",
+  "learning_vision": "Become an AI master champion by using this repository as a practical end-to-end engineering handbook.",
+  "module_boundaries": {
+    "core": "backend/core for config, exceptions, logging",
+    "llm_client": "backend/llm_client for provider adapters and base contracts",
+    "vector_store": "backend/vector_store for vector DB implementations",
+    "rag_pipeline": "backend/rag_pipeline for retrieval and synthesis orchestration",
+    "agents": "backend/agents for orchestration and tool loops"
+  },
+  "project_structure": {
+    "root_contract": [
+      ".ai",
+      ".claude",
+      "AGENTS.md",
+      "backend",
+      "data",
+      "docs",
+      "python-learning",
+      "examples",
+      "tests",
+      "pyproject.toml",
+      "docker-compose.yml"
+    ],
+    "reference_material": "python-learning (local-only, git-ignored)",
+    "learning_handbook": "docs/LEARNING_HANDBOOK.md",
+    "runtime_artifacts": "data/vector_db"
+  },
+  "governance_files": {
+    "system_instructions": ".ai/system_instructions.md",
+    "claude_context": ".claude/context_profile.json",
+    "structure_guide": "docs/FOLDER_STRUCTURE.md",
+    "skills_guide": "docs/SKILLS.md",
+    "learning_handbook": "docs/LEARNING_HANDBOOK.md",
+    "agent_guide": "AGENTS.md"
+  }
+}

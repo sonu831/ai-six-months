@@ -1,0 +1,34 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+
+# Environment and local secrets
+.env
+.env.*
+!.env.example
+
+# Tool caches
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Jupyter artifacts
+.ipynb_checkpoints/
+
+# Runtime outputs
+data/vector_db/**
+!data/vector_db/.gitkeep
+logs/**
+!logs/.gitkeep
+
+# Local learning assets (kept on machine, not pushed)
+python-learning/
+
+# OS/editor files
+.DS_Store
+*.log
