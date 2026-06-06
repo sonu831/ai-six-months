@@ -1,30 +1,34 @@
 {
-  "project": "ai-six-months",
+  "project": "enterprise-ai-sandbox",
   "engineer_seniority": "14+ Years / Lead Architect",
   "tech_stack": [
-    "Python 3.12",
+    "Python 3.11+",
     "FastAPI",
     "PostgreSQL/pgvector",
     "ChromaDB",
     "Pydantic v2",
-    "LangGraph",
+    "LangChain/LangGraph",
     "aiohttp/httpx",
-    "structlog"
+    "structlog",
+    "asyncpg",
+    "SQLAlchemy (AsyncSession)"
   ],
-  "coding_standard": "Production-grade Python with strict typing, async-first boundaries, explicit exception taxonomy, and structured logging.",
-  "learning_vision": "Become an AI master champion by using this repository as a practical end-to-end engineering handbook.",
+  "coding_standard": "Production-grade Python with strict typing, async-first boundaries, explicit domain exception taxonomy, JSON-formatted structured logging, and `async with` resource lifecycle management.",
+  "learning_vision": "Become an AI master champion by using this repository as a practical, end-to-end engineering handbook. Every module is a teachable, production-style implementation.",
   "module_boundaries": {
     "core": "backend/core for config, exceptions, logging",
     "llm_client": "backend/llm_client for provider adapters and base contracts",
-    "vector_store": "backend/vector_store for vector DB implementations",
-    "rag_pipeline": "backend/rag_pipeline for retrieval and synthesis orchestration",
-    "agents": "backend/agents for orchestration and tool loops"
+    "vector_store": "backend/vector_store for vector DB abstractions and implementations (base.py, chroma_store.py, pg_vector.py)",
+    "rag_pipeline": "backend/rag_pipeline for retrieval, reranking, query transformation (engine.py, query_processor.py)",
+    "agents": "backend/agents for orchestration and tool execution loops"
   },
   "project_structure": {
     "root_contract": [
       ".ai",
       ".claude",
       "AGENTS.md",
+      "CLAUDE.md",
+      "README.md",
       "backend",
       "data",
       "docs",
@@ -34,8 +38,9 @@
       "pyproject.toml",
       "docker-compose.yml"
     ],
-    "reference_material": "python-learning (local-only, git-ignored)",
+    "reference_material": "python-learning (local-only, git-ignored, foundational Python notebooks and resources)",
     "learning_handbook": "docs/LEARNING_HANDBOOK.md",
+    "rag_architecture": "docs/RAG_ARCHITECTURE.md",
     "runtime_artifacts": "data/vector_db"
   },
   "governance_files": {
@@ -44,6 +49,15 @@
     "structure_guide": "docs/FOLDER_STRUCTURE.md",
     "skills_guide": "docs/SKILLS.md",
     "learning_handbook": "docs/LEARNING_HANDBOOK.md",
+    "rag_architecture": "docs/RAG_ARCHITECTURE.md",
     "agent_guide": "AGENTS.md"
-  }
+  },
+  "production_pitfalls_defended": [
+    "Prompt injection — strict system/user role separation, no raw user text in system prompts",
+    "Embedding model drift — versioned embedding columns, re-embedding migration scripts",
+    "Token payload cost — token budget enforcement via tiktoken, cross-encoder pruning to top-5",
+    "High-concurrency vector ingestion — asyncpg connection pooling, batched upserts, backpressure via semaphore",
+    "Lost in the middle — cross-encoder re-ranking mitigates context window dilution",
+    "N+1 embedding calls — batched embedding API calls for all query variants at once"
+  ]
 }

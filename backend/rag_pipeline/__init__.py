@@ -7,7 +7,9 @@ from backend.rag_pipeline.engine import (
     RAGRequest,
     RAGResponse,
     ScorePassthroughReranker,
+    reciprocal_rank_fusion,
 )
+from backend.rag_pipeline.query_processor import QueryTransformer
 
 __all__ = [
     "RAGEngine",
@@ -18,4 +20,6 @@ __all__ = [
     "CohereReranker",
     "HuggingFaceCrossEncoderReranker",
     "ScorePassthroughReranker",
+    "QueryTransformer",
+    "reciprocal_rank_fusion",
 ]

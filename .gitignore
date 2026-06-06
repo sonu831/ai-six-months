@@ -27,7 +27,6 @@ logs/**
 !logs/.gitkeep
 
 # Local learning assets (kept on machine, not pushed)
-python-learning/
 
 # OS/editor files
 .DS_Store

@@ -1,10 +1,6 @@
-from backend.vector_store.client import (
-    BaseVectorStore,
-    ChromaVectorStore,
-    DocumentChunk,
-    PgVectorStore,
-    SearchResult,
-)
+from backend.vector_store.base import BaseVectorStore, DocumentChunk, SearchResult
+from backend.vector_store.chroma_store import ChromaVectorStore
+from backend.vector_store.pg_vector import PgVectorStore
 
 __all__ = [
     "BaseVectorStore",
